@@ -5,8 +5,168 @@
  Author:       TechCivics
  Author URI:   https://techcivics.com
  Template:     hueman
- Version:      0.0.1
+ Version:      0.1.0
  License:      GNU General Public License v3 or later
  License URI:  http://www.gnu.org/licenses/gpl-3.0.html
  Text Domain:  hueman-ydwa
 */
+
+.btn {
+    display: inline-block;
+    background-color: #ff595e;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    text-align: center;
+    white-space: normal;
+    word-break: break-all;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: none;
+    transition: all .2s ease-in-out;
+}
+.btn.btn-large {
+    font-size: 20px;
+    line-height: 1.25em;
+    padding: .5em 1em;
+}
+.btn span {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.btn i {
+    margin-right: 8px;
+}
+.btn-large i {
+    font-size: 16px;
+}
+#nav-topbar .nav > li:first-child.menu-item-object-gs_sim {
+	margin-left: 20px;
+}
+#nav-topbar .nav > li img,
+#nav-footer .nav > li img {
+	width: 13px;
+	height: 13px;
+	margin-left: 3px;
+}
+#nav-footer .nav > li:first-child.menu-item-object-gs_sim {
+	margin: 8px 0 8px 13px;
+}
+.site-title,
+.site-description {
+	float: none;
+	text-align: center;
+}
+.site-description {
+	font-size: 1.6em;
+	line-height: 1em;
+	padding-top: 0;
+}
+.site-title a img {
+	max-height: 112px;
+}
+#header .mobile-title-logo-in-header .site-title {
+    text-align: left;
+}
+/*#header .mobile-title-logo-in-header .site-title {
+    top: 10px;
+}
+#header .mobile-title-logo-in-header .site-title a {
+    display: inline;
+    position: relative;
+    top: 0;
+    transform: none;
+}
+#header .mobile-title-logo-in-header .site-title a img {
+    width: 100%;
+    max-width: none;
+}*/
+.home .page-title {
+	display: none;
+}
+.featured,
+.featured.flexslider {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+
+}
+.main-inner .pad {
+	padding: 0;
+}
+.main-inner .post-inner {
+    margin-right: 0;
+}
+.main-inner .post-inner > * {
+    padding: 0 20px;
+}
+.main-inner .post-inner .post-thumbnail {
+    padding: 0;
+}
+/*.home .main-inner .pad {
+	padding: 0;
+}
+.home .main-inner .post-inner > * {
+    padding: 0 20px;
+}
+.home .main-inner .post-inner .post-thumbnail {
+    padding: 0;
+}*/
+
+/* Hero Section */
+.ydwa-hero {
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    background-color: #999999;
+	background-blend-mode: multiply;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.ydwa-hero .sek-container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.ydwa-hero .sek-row {
+    align-items: center;
+    justify-content: center;
+}
+.ydwa-hero .sek-col-base {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.ydwa-hero .sek-module-inner > .sek-heading {
+    text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+    color: #fff;
+    margin-bottom: 14px;
+}
+.ydwa-hero p,
+.ydwa-hero li {
+    text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    color: rgba(255,255,255,.7);
+}
+.ydwa-hero .btn {
+    box-shadow: 0 3px 8px rgba(0,0,0,.2) !important;
+}
+
+/*--- Responsive ---*/
+@media (min-width: 600px) {
+	.ydwa-hero {
+		padding-top: 200px;
+		padding-bottom: 200px;
+	}
+}
