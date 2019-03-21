@@ -61,17 +61,17 @@
 #nav-footer .nav > li:first-child.menu-item-object-gs_sim {
 	margin: 8px 0 8px 13px;
 }
-.site-title,
-.site-description {
+.home .site-title,
+.home .site-description {
 	float: none;
 	text-align: center;
 }
-.site-description {
+.home .site-description {
 	font-size: 1.6em;
 	line-height: 1em;
 	padding-top: 0;
 }
-.site-title a img {
+.home .site-title a img {
 	max-height: 112px;
 }
 #header .mobile-title-logo-in-header .site-title {
@@ -100,7 +100,7 @@
     border-bottom: none;
 
 }
-.main-inner .pad {
+.home .main-inner .pad {
 	padding: 0;
 }
 .main-inner .post-inner {
