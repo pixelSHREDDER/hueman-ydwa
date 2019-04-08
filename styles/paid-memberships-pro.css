@@ -1,0 +1,24 @@
+.pmpro_asterisk,
+#pmpro_levels-return-account,
+#pmpro_levels_table + nav,
+.hide-active-member + #pmpro_levels_table tbody > tr:first-child {
+    display: none;
+}
+.pmpro-billing .entry-content p:first-child:not(:last-child) {
+    display: none;
+}
+form.pmpro_form label {
+    font-weight: 600;
+}
+form.pmpro_form .pmpro_submit {
+    text-align: left;
+}
+.pmpro_checkout h3 span {
+    color: #444;
+}
+.pmpro_btn,
+.pmpro_btn:link,
+.pmpro_content_message a,
+.pmpro_content_message a:link {
+    color: #fff !important;
+}

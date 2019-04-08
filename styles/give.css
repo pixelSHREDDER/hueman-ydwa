@@ -1,0 +1,68 @@
+#give-payment-mode-wrap ul > li:before {
+    display: none;
+}
+#give-recurring-form .form-row input[type="email"],
+#give-recurring-form .form-row input[type="password"],
+#give-recurring-form .form-row input[type="tel"],
+#give-recurring-form .form-row input[type="text"],
+#give-recurring-form .form-row input[type="url"],
+#give-recurring-form .form-row select,
+#give-recurring-form .form-row textarea,
+form.give-form .form-row input[type="email"],
+form.give-form .form-row input[type="password"],
+form.give-form .form-row input[type="tel"],
+form.give-form .form-row input[type="text"],
+form.give-form .form-row input[type="url"],
+form.give-form .form-row select,
+form.give-form .form-row textarea,
+form[id*="give-form"] .form-row input[type="email"],
+form[id*="give-form"] .form-row input[type="password"],
+form[id*="give-form"] .form-row input[type="tel"],
+form[id*="give-form"] .form-row input[type="text"],
+form[id*="give-form"] .form-row input[type="url"],
+form[id*="give-form"] .form-row select,
+form[id*="give-form"] .form-row textarea,
+form[id*="give-form"] .give-donation-amount #give-amount,
+form[id*="give-form"] .give-donation-amount #give-amount-text {
+    color: #666;
+    border-width: 2px;
+}
+form[id*="give-form"] .give-donation-amount .give-currency-symbol,
+form[id*="give-form"] #give-final-total-wrap .give-donation-total-label,
+form[id*="give-form"] #give-final-total-wrap .give-final-total-amount {
+    line-height: 30px;
+    border-width: 2px;
+}
+form[id*="give-form"] .give-donation-amount .give-currency-symbol.give-currency-position-before {
+    border-left-width: 2px;
+}
+#give-recurring-form h3.give-section-break,
+#give-recurring-form h4.give-section-break,
+#give-recurring-form legend,
+form.give-form h3.give-section-break,
+form.give-form h4.give-section-break,
+form.give-form legend,
+form[id*="give-form"] h3.give-section-break,
+form[id*="give-form"] h4.give-section-break,
+form[id*="give-form"] legend {
+    font-weight: 600;
+    border-bottom: 2px solid #eee;
+}
+#give-recurring-form .give-tooltip,
+form.give-form .give-tooltip,
+form[id*="give-form"] .give-tooltip {
+    margin: 0 0 0 8px;
+    cursor: pointer;
+    top: 3px;
+}
+[class*=" give-icon-"],
+[class^="give-icon-"] {
+    color: #bbb;
+    font-family: ionicons !important;
+    font-size: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+.give-icon-question::before {
+    content: "\f142";
+}

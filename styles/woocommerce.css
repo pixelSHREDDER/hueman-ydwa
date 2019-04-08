@@ -1,0 +1,3 @@
+ul.wedocs-docs-list > li.wedocs-docs-single:before {
+	display: none;
+}

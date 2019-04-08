@@ -1,0 +1,6 @@
+div.sharedaddy ul > li:before {
+    display: none;
+}
+div.sharedaddy h3.sd-title {
+    display: none !important;
+}

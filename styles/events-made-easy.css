@@ -1,0 +1,21 @@
+.entry #events-pagination-top {
+    display: none;
+}
+.eme-events-list td {
+    text-align: left;
+}
+.eme-events-list td:first-child {
+    width: 20%;
+    text-align: center;
+    padding-right: 0;
+}
+.eme-events-list td:last-child {
+    text-align: right;
+}
+.sidebar .eme-events-list td:first-child,
+.sidebar .eme-events-list td:last-child {
+    padding-left: 0;
+}
+table.eme-calendar-table ul > li:before {
+    display: none;
+}

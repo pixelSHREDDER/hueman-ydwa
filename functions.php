@@ -10,12 +10,180 @@ function add_app_color_meta() {
 }
 add_action('wp_head', 'add_app_color_meta');
 
- /* Add additional custom color styles */
-add_filter( 'hu_get_primary_color_style', 'add_custom_color_styles');
+/*add_filter( 'hu_get_primary_color_style', 'add_custom_color_styles');
 function add_custom_color_styles() {
-   return array('#header #nav-mobile { background-color: ' . maybe_hash_hex_color(hu_get_option('color-1')) . '; }');
+   //return array('#header #nav-mobile { background-color: ' . maybe_hash_hex_color(hu_get_option('color-1')) . '; }');
    //$styles = '#header #nav-mobile { background-color: ' . maybe_hash_hex_color(hu_get_option('color-1')) . '; }';
    //wp_add_inline_style('hueman-main-style', apply_filters('ha_user_options_style', $styles));
 }
-//add_action('wp_head', 'add_custom_color_styles');
+//add_action('wp_head', 'add_custom_color_styles');*/
+
+global $plugins;
+$plugins = array(
+   'jetpack' => array(
+      'file' => 'jetpack',
+      'active' => false
+   ),
+   'events-made-easy' => array(
+      'file' => 'events-manager',
+      'active' => false
+   ),
+   'give' => array(
+      'file' => 'give',
+      'active' => false
+   ),
+   'contact-form-7' => array(
+      'file' => 'wp-contact-form-7',
+      'active' => false
+   ),
+   'ultimate-member' => array(
+      'file' => 'ultimate-member',
+      'active' => false
+   ),
+   'paid-memberships-pro' => array(
+      'file' => 'paid-memberships-pro',
+      'active' => false
+   ),
+   'woocommerce' => array(
+      'file' => 'woocommerce',
+      'active' => false
+   )
+);
+
+add_action( 'wp_head', 'plugins_style', 100 );
+
+function plugins_style() {
+   global $plugins;
+   include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+   foreach ($plugins as $key => $plugin) {
+      if (is_plugin_active($key . '/' . $plugin['file'] . '.php')) {
+         $plugins[$key]['active'] = true;
+         wp_register_style($key, get_stylesheet_directory_uri() . '/styles/' . $key . '.css');
+         wp_enqueue_style($key);
+      }
+   }
+
+   /*if ( is_plugin_active( 'jetpack/jetpack.php' ) ) {
+      $uses_jetpack = true;
+      wp_register_style('jetpack', get_stylesheet_directory_uri() .'/styles/jetpack.css');
+      wp_enqueue_style('jetpack');
+   }
+
+   if ( is_plugin_active( 'events-made-easy/events-manager.php' ) ) {
+      $uses_eme = true;
+      wp_register_style('eme', get_stylesheet_directory_uri() .'/styles/eme.css');
+      wp_enqueue_style('eme');
+   }
+
+   if ( is_plugin_active( 'give/give.php' ) ) {
+      $uses_give = true;
+      wp_register_style('give', get_stylesheet_directory_uri() .'/styles/give.css');
+      wp_enqueue_style('give');
+   }
+
+   if ( is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
+      $uses_wpcf7 = true;
+      wp_register_style('wpcf7', get_stylesheet_directory_uri() .'/styles/wpcf7.css');
+      wp_enqueue_style('wpcf7');
+   }
+
+   if ( is_plugin_active( 'ultimate-member/ultimate-member.php' ) ) {
+      $uses_ultimate_member = true;
+      wp_register_style('ultimate-member', get_stylesheet_directory_uri() .'/styles/ultimate-member.css');
+      wp_enqueue_style('ultimate-member');
+   }
+
+   if ( is_plugin_active( 'paid-memberships-pro/paid-memberships-pro.php' ) ) {
+      $uses_pmp = true;
+      wp_register_style('pmp', get_stylesheet_directory_uri() .'/styles/pmp.css');
+      wp_enqueue_style('pmp');
+   }
+
+   if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+      $uses_woocommerce = true;
+      wp_register_style('woocommerce', get_stylesheet_directory_uri() .'/styles/woocommerce.css');
+      wp_enqueue_style('woocommerce');
+   }*/
+}
+
+add_action( 'wp_head', 'custom_colors_style', 100 );
+
+function custom_colors_style() {
+   global $plugins;
+   $prim_color = maybe_hash_hex_color(hu_get_option('color-1'));
+   $sec_color = maybe_hash_hex_color(hu_get_option('color-2'));
+
+   if (!empty($prim_color) || !empty($sec_color)) {
+      echo '<style type="text/css">';
+      if (!empty($prim_color)) {
+         echo '.btn {background-color:' . $prim_color . ' !important;}';
+         if ($plugins['ultimate-member']['active']) {
+            echo
+               '.um .um-field-group-head,.picker__box,.picker__nav--prev:hover,.picker__nav--next:hover,' .
+               '.um .um-members-pagi span.current,.um .um-members-pagi span.current:hover,.um .um-profile-nav-item.active a,' .
+               '.um .um-profile-nav-item.active a:hover,.upload,.um-modal-header,.um-modal-btn,.um-modal-btn.disabled,' .
+               '.um-modal-btn.disabled:hover,div.uimob800 .um-account-side li a.current,div.uimob800 .um-account-side li a.current:hover,' .
+               '.um input[type="submit"].um-button,.um input[type="submit"].um-button:focus,.um a.um-button,' . 
+               '.um a.um-button.um-disabled:hover,.um a.um-button.um-disabled:focus,.um a.um-button.um-disabled:active,' .
+               '.um .um-field-group-head:hover,.picker__header,.picker__day--infocus:hover,.picker__day--outfocus:hover,' .
+               '.picker__day--highlighted:hover,.picker--focused .picker__day--highlighted,.picker__list-item:hover,' .
+               '.picker__list-item--highlighted:hover,.picker--focused .picker__list-item--highlighted,' .
+               '.picker__list-item--selected,.picker__list-item--selected:hover,' .
+               '.picker--focused .picker__list-item--selected {background:' . $prim_color . ' !important;}';
+         }
+         if ($plugins['paid-memberships-pro']['active']) {
+            echo
+               '.pmpro_btn,.pmpro_btn:link,.pmpro_content_message a,.pmpro_content_message a:link {' .
+               'background-color: ' . $prim_color . ' !important; border-color: ' . $prim_color . ' !important;}';
+         }
+      }
+      if (!empty($sec_color)) {
+         if ($plugins['ultimate-member']['active']) {
+            echo
+               '.um .um-dropdown {background: ' . $sec_color . ' !important;}';
+            echo
+               '.um-profile.um .um-profile-headericon > a:hover,.um-profile.um .um-profile-edit-a.active' .
+               ' {color: ' . $sec_color . ' !important;}';
+         }
+      }
+      echo '</style>';
+   }
+}
+
+/*function replace_text($text) {
+   $text = str_replace(
+      '<div class="um-member-metaline um-member-metaline-leg_dist"><span><strong>Legislative District (required) <a href="http://app.leg.wa.gov/districtfinder/" target="_blank">(Don\'t know? Find out here!)</a>:</strong>',
+      '<div class="um-member-metaline um-member-metaline-leg_dist"><span><strong>Legislative District:</strong>',
+      $text);
+	//$text = str_replace('look-for-that-string', 'replace-with-that-string', $text);
+	return $text;
+}
+add_filter('the_content', 'replace_text');*/
+if ($plugins['ultimate-member']['active'] || $plugins['paid-memberships-pro']['active']) {
+   add_action( 'wp_footer', function() {
+      echo 
+         "<script>" .
+            "(function($) {" .
+               "'use strict';" .
+               "$(document).on('ready', function() {";
+
+      if ($plugins['paid-memberships-pro']['active']) {
+            echo
+                  "$('.pmpro_checkout-field-username > label').text('Username (required)');" .
+                  "$('.pmpro_checkout-field-password > label').text('Password (required)');" .
+                  "$('.pmpro_checkout-field-password2 > label').text('Confirm Password (required)');" .
+                  "$('.pmpro_checkout-field-bemail > label').text('Email Address (required)');" .
+                  "$('.pmpro_checkout-field-bconfirmemail > label').text('Confirm Email Address (required)');";
+      }
+      if ($plugins['ultimate-member']['active']) {
+            echo
+                  "$('.um-member-metaline-leg_dist strong').text('Legislative District:');";
+      }
+      echo
+               "});" .
+            "} (jQuery));" .
+         "</script>";
+   });
+}
 ?>

@@ -11,6 +11,17 @@
  Text Domain:  hueman-ydwa
 */
 
+.themeform label input {
+    font-size: 1.0em;
+}
+form legend {
+    width: 100%;
+    font-size: 1.15em;
+    font-weight: 600;
+    border-bottom: 2px solid #eee;
+    margin: 10px 0 15px;
+    padding: 0 0 5px;
+}
 .btn {
     display: inline-block;
     background-color: #ff595e;
@@ -49,6 +60,12 @@
 .btn-large i {
     font-size: 16px;
 }
+.entry table th {
+    padding: 10px 20px;
+}
+.entry table td {
+    padding: 20px;
+}
 #nav-topbar .nav > li:first-child.menu-item-object-gs_sim {
 	margin-left: 20px;
 }
@@ -77,19 +94,6 @@
 #header .mobile-title-logo-in-header .site-title {
     text-align: left;
 }
-/*#header .mobile-title-logo-in-header .site-title {
-    top: 10px;
-}
-#header .mobile-title-logo-in-header .site-title a {
-    display: inline;
-    position: relative;
-    top: 0;
-    transform: none;
-}
-#header .mobile-title-logo-in-header .site-title a img {
-    width: 100%;
-    max-width: none;
-}*/
 .home .page-title {
 	display: none;
 }
@@ -98,7 +102,9 @@
     padding-bottom: 0;
     margin-bottom: 0;
     border-bottom: none;
-
+}
+.post-list {
+    margin-right: 0;
 }
 .home .main-inner .pad {
 	padding: 0;
@@ -112,17 +118,6 @@
 .main-inner .post-inner .post-thumbnail {
     padding: 0;
 }
-/*.home .main-inner .pad {
-	padding: 0;
-}
-.home .main-inner .post-inner > * {
-    padding: 0 20px;
-}
-.home .main-inner .post-inner .post-thumbnail {
-    padding: 0;
-}*/
-
-/* Hero Section */
 .ydwa-hero {
     background-position: 50% 0%;
     background-repeat: no-repeat;
@@ -163,7 +158,6 @@
     box-shadow: 0 3px 8px rgba(0,0,0,.2) !important;
 }
 
-/*--- Responsive ---*/
 @media (min-width: 600px) {
 	.ydwa-hero {
 		padding-top: 200px;

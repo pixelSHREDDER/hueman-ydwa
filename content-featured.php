@@ -20,7 +20,7 @@ if (!empty($featured_img_url)) {
 	$background_styles = "background: #78c434; background: -moz-linear-gradient(top, #78c434 0%, #1982d1 100%); background: -webkit-linear-gradient(top, #78c434 0%,#1982d1 100%); background: linear-gradient(to bottom, #78c434 0%,#1982d1 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#78c434', endColorstr='#1982d1',GradientType=0 );";
 }
 ?>
-<article id="post-<?php echo $featured_post->id ?>" <?php post_class('group ydwa-hero sek-section sek-has-modules '); ?> data-sek-level="section" data-sek-has-bg="true" data-sek-bg-parallax="true" data-bg-width="1920" data-bg-height="1280" data-sek-parallax-force="40" style="background-position-y: calc(50% + 30px); <?php echo $background_styles ?>">
+<article id="post-<?php echo $featured_post->id ?>" <?php post_class('group ydwa-hero sek-section sek-has-modules '); ?> data-sek-level="section" data-sek-has-bg="true" data-bg-width="1920" data-bg-height="1280" style="<?php echo $background_styles ?>">
 	<div class="sek-container-fluid">
 		<div class="sek-row sek-sektion-inner">
 			<div data-sek-level="column" class="sek-column sek-col-base sek-col-50">
