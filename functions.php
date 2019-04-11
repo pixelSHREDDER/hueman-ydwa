@@ -63,48 +63,6 @@ function plugins_style() {
          wp_enqueue_style($key);
       }
    }
-
-   /*if ( is_plugin_active( 'jetpack/jetpack.php' ) ) {
-      $uses_jetpack = true;
-      wp_register_style('jetpack', get_stylesheet_directory_uri() .'/styles/jetpack.css');
-      wp_enqueue_style('jetpack');
-   }
-
-   if ( is_plugin_active( 'events-made-easy/events-manager.php' ) ) {
-      $uses_eme = true;
-      wp_register_style('eme', get_stylesheet_directory_uri() .'/styles/eme.css');
-      wp_enqueue_style('eme');
-   }
-
-   if ( is_plugin_active( 'give/give.php' ) ) {
-      $uses_give = true;
-      wp_register_style('give', get_stylesheet_directory_uri() .'/styles/give.css');
-      wp_enqueue_style('give');
-   }
-
-   if ( is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
-      $uses_wpcf7 = true;
-      wp_register_style('wpcf7', get_stylesheet_directory_uri() .'/styles/wpcf7.css');
-      wp_enqueue_style('wpcf7');
-   }
-
-   if ( is_plugin_active( 'ultimate-member/ultimate-member.php' ) ) {
-      $uses_ultimate_member = true;
-      wp_register_style('ultimate-member', get_stylesheet_directory_uri() .'/styles/ultimate-member.css');
-      wp_enqueue_style('ultimate-member');
-   }
-
-   if ( is_plugin_active( 'paid-memberships-pro/paid-memberships-pro.php' ) ) {
-      $uses_pmp = true;
-      wp_register_style('pmp', get_stylesheet_directory_uri() .'/styles/pmp.css');
-      wp_enqueue_style('pmp');
-   }
-
-   if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-      $uses_woocommerce = true;
-      wp_register_style('woocommerce', get_stylesheet_directory_uri() .'/styles/woocommerce.css');
-      wp_enqueue_style('woocommerce');
-   }*/
 }
 
 add_action( 'wp_head', 'custom_colors_style', 100 );
@@ -124,8 +82,8 @@ function custom_colors_style() {
                '.um .um-members-pagi span.current,.um .um-members-pagi span.current:hover,.um .um-profile-nav-item.active a,' .
                '.um .um-profile-nav-item.active a:hover,.upload,.um-modal-header,.um-modal-btn,.um-modal-btn.disabled,' .
                '.um-modal-btn.disabled:hover,div.uimob800 .um-account-side li a.current,div.uimob800 .um-account-side li a.current:hover,' .
-               '.um input[type="submit"].um-button,.um input[type="submit"].um-button:focus,.um a.um-button,' . 
-               '.um a.um-button.um-disabled:hover,.um a.um-button.um-disabled:focus,.um a.um-button.um-disabled:active,' .
+               '.um input[type="submit"].um-button:not(.um-alt),.um input[type="submit"].um-button:not(.um-alt):focus,.um a.um-button:not(.um-alt),' . 
+               '.um a.um-button.um-disabled:not(.um-alt):hover,.um a.um-button.um-disabled:not(.um-alt):focus,.um a.um-button.um-disabled:not(.um-alt):active,' .
                '.um .um-field-group-head:hover,.picker__header,.picker__day--infocus:hover,.picker__day--outfocus:hover,' .
                '.picker__day--highlighted:hover,.picker--focused .picker__day--highlighted,.picker__list-item:hover,' .
                '.picker__list-item--highlighted:hover,.picker--focused .picker__list-item--highlighted,' .
