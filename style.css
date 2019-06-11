@@ -5,7 +5,7 @@
  Author:       TechCivics
  Author URI:   https://techcivics.com
  Template:     hueman
- Version:      0.4.1
+ Version:      0.4.2
  License:      GNU General Public License v3 or later
  License URI:  http://www.gnu.org/licenses/gpl-3.0.html
  Text Domain:  hueman-ydwa
@@ -107,8 +107,21 @@ form legend {
     margin-bottom: 0;
     border-bottom: none;
 }
+#flexslider-featured {
+    margin-top: 0;
+}
+#flexslider-featured .flex-control-nav {
+    top: 0;
+    bottom: auto;
+}
+#flexslider-featured .flex-control-nav li {
+    float: none;
+}
+#flexslider-featured .flex-control-nav li a {
+    height: 10px;
+}
 #flexslider-featured .flex-direction-nav {
-    top: 50%;
+    top: 0;
     left: 0;
 }
 .post-list {

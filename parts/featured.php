@@ -4,16 +4,16 @@ $now = strtotime(date('c', time()));
 $events_table = $wpdb->prefix . 'eme_events';
 
 if (is_home() && !is_paged() && (hu_get_option('featured-posts-count') == '1')) {
-	foreach($wpdb->get_results("SELECT event_id, event_name, event_image_id, event_image_url, event_start_date, event_slug FROM " . $events_table . " WHERE event_start_date >= CURRENT_DATE() ORDER BY event_start_date ASC LIMIT 1") as $key => $wpdbq) {
+	foreach($wpdb->get_results("SELECT event_id, event_name, event_image_id, event_image_url, event_start_date, event_start_time, event_slug FROM " . $events_table . " WHERE event_start_date >= CURRENT_DATE() ORDER BY event_start_date ASC LIMIT 1") as $key => $wpdbq) {
 		$permalink = get_site_url() . '/events/' . $wpdbq->event_id . '/' . $wpdbq->event_slug;
-        $start_date = date('l, M jS @ g:i A', strtotime($wpdbq->event_start_date));
+        $start_date = date('l, M jS @ g:i A', strtotime("$wpdbq->event_start_date $wpdbq->event_start_time"));
         $array = array(
             'id'                => $wpdbq->event_id,
             'permalink'         => $permalink,
 			'esc_permalink'     => esc_url($permalink),
             'title'             => 'Upcoming Event: ' . $wpdbq->event_name,
             'excerpt'           => $start_date,
-            'fulldate'          => date('c', strtotime($wpdbq->event_start_date)),
+            'fulldate'          => date('c', strtotime("$wpdbq->event_start_date $wpdbq->event_start_time")),
             'category'          => 'Events'
 		);
 
@@ -68,16 +68,16 @@ if (is_home() && !is_paged() && (hu_get_option('featured-posts-count') == '1')) 
 		endwhile;
 	}
 } elseif (is_home() && !is_paged() && (hu_get_option('featured-posts-count') != '0')) {
-	foreach($wpdb->get_results("SELECT event_id, event_name, event_image_id, event_image_url, event_start_date, event_slug FROM " . $events_table . " WHERE event_start_date >= CURRENT_DATE() ORDER BY event_start_date ASC LIMIT " . hu_get_option('featured-posts-count') * 2) as $key => $wpdbq) {
+	foreach($wpdb->get_results("SELECT event_id, event_name, event_image_id, event_image_url, event_start_date, event_start_time, event_slug FROM " . $events_table . " WHERE event_start_date >= CURRENT_DATE() ORDER BY event_start_date ASC LIMIT " . hu_get_option('featured-posts-count') * 2) as $key => $wpdbq) {
 		$permalink = get_site_url() . '/events/' . $wpdbq->event_id . '/' . $wpdbq->event_slug;
-        $start_date = date('l, M jS @ g:i A', strtotime($wpdbq->event_start_date));
+        $start_date = date('l, M jS @ g:i A', strtotime("$wpdbq->event_start_date $wpdbq->event_start_time"));
         $array = array(
             'id'                => $wpdbq->event_id,
             'permalink'         => $permalink,
 			'esc_permalink'     => esc_url($permalink),
             'title'             => 'Upcoming Event: ' . $wpdbq->event_name,
             'excerpt'           => $start_date,
-            'fulldate'          => date('c', strtotime($wpdbq->event_start_date)),
+            'fulldate'          => date('c', strtotime("$wpdbq->event_start_date $wpdbq->event_start_time")),
             'category'          => 'Events'
         );
 
