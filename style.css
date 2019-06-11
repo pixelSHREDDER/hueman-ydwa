@@ -5,7 +5,7 @@
  Author:       TechCivics
  Author URI:   https://techcivics.com
  Template:     hueman
- Version:      0.4.2
+ Version:      0.4.3
  License:      GNU General Public License v3 or later
  License URI:  http://www.gnu.org/licenses/gpl-3.0.html
  Text Domain:  hueman-ydwa
@@ -59,6 +59,10 @@ form legend {
 }
 .btn-large i {
     font-size: 16px;
+}
+.wp-block-image .alignleft,
+.wp-block-image .alignright {
+    max-width: 50%;
 }
 .entry table th {
     padding: 10px 20px;
@@ -163,7 +167,7 @@ form legend {
     text-align: center;
     font-weight: 400;
     font-style: normal;
-    font-size: 50px;
+    font-size: 36px;
     color: #fff;
     margin-bottom: 14px;
 }
@@ -184,4 +188,10 @@ form legend {
 		padding-top: 200px;
 		padding-bottom: 200px;
 	}
+}
+@media (min-width: 720px) {
+    .wp-block-image .alignleft,
+    .wp-block-image .alignright {
+        max-width: none;
+    }
 }
