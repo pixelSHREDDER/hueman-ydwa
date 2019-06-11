@@ -93,48 +93,51 @@ if (is_home() && !is_paged() && (hu_get_option('featured-posts-count') == '1')) 
         array_push($featured, $wpdb_slider_post);
 	}
 
-	$wp_query = new WP_Query(
-		array(
-            'no_found_rows'				=> false,
-    		'update_post_meta_cache'    => false,
-    		'update_post_term_cache'    => false,
-            'posts_per_page'            => hu_get_option('featured-posts-count') * 2,
-			'orderby'                   => 'date',
-			'order'                     => 'DESC',
-			'post_status'               => 'publish',
-            'cat'                       => hu_get_option('featured-category')
-		)
-	);
-
-	while ($wp_query->have_posts()) :
-		$wp_query->the_post();
-		$full_date = get_the_date('c');
-		if ((strtotime($full_date) > strtotime('2 months ago')) || (sizeof($slider_posts) < 3)) {
-			$thumb_id = get_post_thumbnail_id($wp_query->ID);
-			$array = array(
-                'id'                => get_the_ID(),
-                'permalink'         => get_permalink(),
-				'esc_permalink'	    => esc_url(get_permalink()),
-				'title'             => get_the_title(),
-                'excerpt'           => get_the_excerpt(),
-				'thumb_id'          => $thumb_id,
-				'thumb_meta'        => wp_get_attachment_metadata($thumb_id),
-				'full_date'         => $full_date,
-				'author'            => get_the_author(),
-                'author_link'       => esc_url(get_author_posts_url(get_the_author_meta('ID'))),
-                'comments_link'     => get_comments_link(),
-                'comments_number'   => get_comments_number( '0', '1', '%' ),
-                'category'          => get_the_category(' / ')
-			);
-			$wp_query_slider_post = (object) $array;
-            array_push($featured, $wp_query_slider_post);
-		}
-	endwhile;
-
     usort($featured, function($a, $b) {
 		return ($now - strtotime($b->fulldate)) - ($now - strtotime($a->fulldate));
 	});
-    array_slice($featured, 0, hu_get_option('featured-posts-count'));
+
+	if (count($featured) < hu_get_option('featured-posts-count')) {
+		$wp_query = new WP_Query(
+			array(
+				'no_found_rows'				=> false,
+				'update_post_meta_cache'    => false,
+				'update_post_term_cache'    => false,
+				'posts_per_page'            => hu_get_option('featured-posts-count') * 2,
+				'orderby'                   => 'date',
+				'order'                     => 'DESC',
+				'post_status'               => 'publish',
+				'cat'                       => hu_get_option('featured-category')
+			)
+		);
+
+		while ($wp_query->have_posts()) :
+			$wp_query->the_post();
+			$full_date = get_the_date('c');
+			if ((strtotime($full_date) > strtotime('2 months ago')) || (sizeof($slider_posts) < 3)) {
+				$thumb_id = get_post_thumbnail_id($wp_query->ID);
+				$array = array(
+					'id'                => get_the_ID(),
+					'permalink'         => get_permalink(),
+					'esc_permalink'	    => esc_url(get_permalink()),
+					'title'             => get_the_title(),
+					'excerpt'           => get_the_excerpt(),
+					'thumb_id'          => $thumb_id,
+					'thumb_meta'        => wp_get_attachment_metadata($thumb_id),
+					'full_date'         => $full_date,
+					'author'            => get_the_author(),
+					'author_link'       => esc_url(get_author_posts_url(get_the_author_meta('ID'))),
+					'comments_link'     => get_comments_link(),
+					'comments_number'   => get_comments_number( '0', '1', '%' ),
+					'category'          => get_the_category(' / ')
+				);
+				$wp_query_slider_post = (object) $array;
+				array_push($featured, $wp_query_slider_post);
+			}
+		endwhile;
+	}
+
+	array_slice($featured, 0, hu_get_option('featured-posts-count'));
 }
 
 // Query featured entries
