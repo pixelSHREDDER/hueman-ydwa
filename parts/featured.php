@@ -162,12 +162,12 @@ if (is_home() && !is_paged() && (hu_get_option('featured-posts-count') == '1')) 
 		?>
 	</div><!--/.featured-->
 
-<?php elseif (is_home() && !is_paged() && ('0' != hu_get_option('featured-posts-count')) && !empty($featured)): // Show slider if posts are not 1 or 0 ?>
-
+<?php elseif (is_home() && !is_paged() && (hu_get_option('featured-posts-count') != '0') && !empty($featured)): // Show slider if posts are not 1 or 0 ?>
     <script type="text/javascript">
 		// Check if first slider image is loaded, and load flexslider on document ready
 		jQuery(function($){
-		 var firstImage = $('#flexslider-featured').find('img').filter(':first'),
+		 //var firstImage = $('#flexslider-featured').find('img').filter(':first'),
+		 var firstImage = $('<img/>').attr('src', '<?php echo hu_get_img_src(current($featured)->thumb_id); ?>'),
 			checkforloaded = setInterval(function() {
 				var image = firstImage.get(0);
 				if (image.complete || image.readyState == 'complete' || image.readyState == 4) {
