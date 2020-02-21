@@ -82,8 +82,8 @@ function custom_colors_style() {
                '.um .um-members-pagi span.current,.um .um-members-pagi span.current:hover,.um .um-profile-nav-item.active a,' .
                '.um .um-profile-nav-item.active a:hover,.upload,.um-modal-header,.um-modal-btn:not(.alt),.um-modal-btn.disabled:not(.alt),' .
                '.um-modal-btn.disabled:not(.alt):hover,div.uimob800 .um-account-side li a.current,div.uimob800 .um-account-side li a.current:hover,' .
-               '.um input[type="submit"].um-button:not(.alt),.um input[type="submit"].um-button:not(.alt):focus,.um a.um-button:not(.alt),' . 
-               '.um a.um-button.um-disabled:not(.alt):hover,.um a.um-button.um-disabled:not(.alt):focus,.um a.um-button.um-disabled:not(.alt):active,' .
+               '.um input[type="submit"].um-button:not(.um-alt),.um input[type="submit"].um-button:not(.um-alt):focus,.um a.um-button:not(.um-alt),' . 
+               '.um a.um-button.um-disabled:not(.um-alt):hover,.um a.um-button.um-disabled:not(.um-alt):focus,.um a.um-button.um-disabled:not(.um-alt):active,' .
                '.um .um-field-group-head:hover,.picker__header,.picker__day--infocus:hover,.picker__day--outfocus:hover,' .
                '.picker__day--highlighted:hover,.picker--focused .picker__day--highlighted,.picker__list-item:hover,' .
                '.picker__list-item--highlighted:hover,.picker--focused .picker__list-item--highlighted,' .
