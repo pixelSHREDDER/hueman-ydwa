@@ -57,14 +57,17 @@
     font-weight: 400;
     text-align: right !important;
     padding: 10px 0 !important;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
+    /*opacity: 0;
+    transition: opacity .3s ease-in-out;*/
     -webkit-transform: translateZ(0);
     -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.15);
     box-shadow: 0 2px 2px rgba(0,0,0,.15);
 }
 .um .um-profile-edit-a.active + .um-dropdown {
     opacity: 1;
+}
+.um .um-dropdown ul {
+    background: transparent !important;
 }
 .um .um-dropdown li {
     box-shadow: 0 1px 0 rgba(255,255,255,.06);
