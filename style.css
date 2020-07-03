@@ -5,7 +5,7 @@
  Author:       TechCivics
  Author URI:   https://techcivics.com
  Template:     hueman
- Version:      0.4.3
+ Version:      0.4.4
  License:      GNU General Public License v3 or later
  License URI:  http://www.gnu.org/licenses/gpl-3.0.html
  Text Domain:  hueman-ydwa
@@ -163,21 +163,25 @@ form legend {
 	padding-left: 20px;
 	padding-right: 20px;
 }
-.ydwa-hero .sek-module-inner > .sek-heading {
+.ydwa-hero .sek-module-inner:last-child {
     text-align: center;
-    font-weight: 400;
+}
+.ydwa-hero .sek-module-inner > .sek-heading,
+.ydwa-hero p {
+    text-align: center;
     font-style: normal;
-    font-size: 36px;
     color: #fff;
+    text-shadow: 1px 1px 4px #000;
     margin-bottom: 14px;
+}
+.ydwa-hero .sek-module-inner > .sek-heading {
+    font-size: 36px;
+    font-weight: 400;
 }
 .ydwa-hero p,
 .ydwa-hero li {
-    text-align: center;
-    font-weight: 400;
-    font-style: normal;
     font-size: 18px;
-    color: rgba(255,255,255,.7);
+    font-weight: 600;
 }
 .ydwa-hero .btn {
     box-shadow: 0 3px 8px rgba(0,0,0,.2) !important;

@@ -114,7 +114,7 @@ if (is_home() && !is_paged() && (hu_get_option('featured-posts-count') == '1')) 
 		while ($wp_query->have_posts()) :
 			$wp_query->the_post();
 			$full_date = get_the_date('c');
-			if ((strtotime($full_date) > strtotime('2 months ago')) || (sizeof($slider_posts) < 3)) {
+			if ((strtotime($full_date) > strtotime('2 months ago')) || (sizeof($featured) < 3)) {
 				$thumb_id = get_post_thumbnail_id($wp_query->ID);
 				$array = array(
 					'id'                => get_the_ID(),
