@@ -4,3 +4,21 @@ div.sharedaddy ul > li:before {
 div.sharedaddy h3.sd-title {
     display: none !important;
 }
+.sd-social-icon .sd-content ul li[class*=share-] a.sd-button,
+.sd-social-icon .sd-content ul li a.share-more {
+   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.26),
+    -1px -1px 10px 0 rgba(255, 255, 255, 0.16);
+}
+.sd-social-icon .sd-content ul li a.share-more,
+.sharing-hidden .inner {
+    border: none;
+    border-radius: 24px;
+    font-weight: 600;
+}
+.sd-social-icon .sd-content ul li a.share-more {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.22), rgba(255, 255, 255, 0.25));
+}
+.sd-social-icon .sd-content ul li a.share-more:active,
+.sd-social-icon .sd-content ul li a.share-more:hover {
+    border: none;
+}

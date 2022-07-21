@@ -75,7 +75,18 @@ function custom_colors_style() {
    if (!empty($prim_color) || !empty($sec_color)) {
       echo '<style type="text/css">';
       if (!empty($prim_color)) {
-         echo '.btn {background-color:' . $prim_color . ' !important;}';
+         echo '.btn,#flexslider-featured .flex-direction-nav a,.themeform input[type="submit"],.themeform button[type="submit"],' .
+              '.sidebar.s1 .sidebar-top,.sidebar.s1 .sidebar-toggle,#flexslider-featured .flex-control-nav li a.flex-active,' .
+              '.post-tags a:hover,.sidebar.s1 .widget_calendar caption,#footer .widget_calendar caption,.author-bio .bio-avatar:after,' .
+              '.commentlist li.bypostauthor > .comment-body:after,.commentlist li.comment-author-admin > .comment-body:after,' .
+              '.themeform .woocommerce #respond input#submit.alt,.themeform .woocommerce a.button.alt,.themeform .woocommerce button.button.alt,' .
+              '.themeform .woocommerce input.button.alt {background-color:' . $prim_color . ' !important;}';
+         echo '@media (min-width: 479px) and (max-width: 960px) {.sidebar.s1 .sidebar-top {background:' . $prim_color . ' !important;}}';
+         if ($plugins['events-made-easy']['active']) {
+            echo
+               '.locations-pagination-top a,.locations-pagination-bottom a,.events-pagination-top a,.events-pagination-bottom a {' .
+               'background-color: ' . $prim_color . ' !important; border-color: ' . $prim_color . ' !important;}';
+         }
          if ($plugins['ultimate-member']['active']) {
             echo
                '.um .um-field-group-head,.picker__box,.picker__nav--prev:hover,.picker__nav--next:hover,' .
@@ -88,7 +99,7 @@ function custom_colors_style() {
                '.picker__day--highlighted:hover,.picker--focused .picker__day--highlighted,.picker__list-item:hover,' .
                '.picker__list-item--highlighted:hover,.picker--focused .picker__list-item--highlighted,' .
                '.picker__list-item--selected,.picker__list-item--selected:hover,' .
-               '.picker--focused .picker__list-item--selected {background:' . $prim_color . ' !important;}';
+               '.picker--focused .picker__list-item--selected {background-color:' . $prim_color . ' !important;}';
          }
          if ($plugins['paid-memberships-pro']['active']) {
             echo
@@ -97,7 +108,9 @@ function custom_colors_style() {
          }
       }
       if (!empty($sec_color)) {
-         if ($plugins['ultimate-member']['active']) {
+         echo
+            '.post-nav li i,#nav-header .sub-menu li,#nav-footer.nav-container,#nav-footer .sub-menu li {background-color: ' . $sec_color . ' !important;}';
+            if ($plugins['ultimate-member']['active']) {
             echo
                '.um .um-dropdown {background: ' . $sec_color . ' !important;}';
             echo

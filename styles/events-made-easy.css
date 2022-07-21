@@ -4,6 +4,30 @@
 .entry #events-pagination-bottom {
     margin-bottom: 20px;
 }
+.locations-pagination-top a,
+.locations-pagination-bottom a,
+.events-pagination-top a,
+.events-pagination-bottom a {
+    font-size: 1.125em;
+    font-weight: 400;
+    padding: 8px 50px;
+    color: rgba(255, 255, 255, .85);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.26),
+    -1px -1px 10px 0 rgba(255, 255, 255, 0.16);
+    background: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(255,255,255,0.08));
+}
+.locations-pagination-top a:hover,
+.locations-pagination-top a:focus,
+.locations-pagination-bottom a:hover,
+.locations-pagination-bottom a:focus,
+.events-pagination-top a:hover,
+.events-pagination-top a:focus,
+.events-pagination-bottom a:hover,
+.events-pagination-bottom a:focus {
+    color: rgba(255, 255, 255, 1);
+}
 .eme-events-list td {
     text-align: left;
 }
@@ -27,4 +51,7 @@
 }
 table.eme-calendar-table ul > li:before {
     display: none;
+}
+.eme-location-map {
+    margin-bottom: 14px;
 }
